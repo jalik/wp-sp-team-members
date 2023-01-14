@@ -1,0 +1,54 @@
+.member {
+  width: 300px;
+}
+
+.member-body {
+  padding: 15px;
+  margin: 0;
+}
+
+.member-name {
+  font-weight: bold;
+}
+
+.member-details {
+  font-size: 0.8em;
+}
+
+.member-job {
+  font-style: italic;
+}
+
+.member-header {
+  display: block;
+}
+
+.member figure {
+  margin: 0;
+  position: relative;
+}
+
+.member-photo {
+  background: rgba(200, 200, 200, 0.1);
+  border-radius: 5px;
+  display: block;
+  object-fit: cover;
+  width: auto;
+  height: 100%;
+  transition: filter 400ms;
+}
+
+.member-photo:focus,
+.member-photo:hover,
+a:focus > figure > .member-photo,
+a:hover > figure > .member-photo {
+  filter: opacity(0.6);
+}
+
+.team {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
