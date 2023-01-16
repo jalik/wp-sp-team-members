@@ -22,7 +22,6 @@ function sptmRegisterPostTypes()
     'supports' => array(
       'title',
       'thumbnail',
-      'excerpt',
       'revisions',
       'custom-fields',
       'page-attributes',
