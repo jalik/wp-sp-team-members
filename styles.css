@@ -1,3 +1,8 @@
+.detail-not-applicable {
+  cursor: help;
+  color: rgba(0, 0, 0, 0.5);
+}
+
 .member {
   width: 300px;
 }
@@ -43,6 +48,12 @@
 a:focus > figure > .member-photo,
 a:hover > figure > .member-photo {
   filter: opacity(0.6);
+}
+
+.member-email > span:first-child,
+.member-phone > span:first-child,
+.member-mobile > span:first-child {
+  margin-right: 0.5em;
 }
 
 .team {
