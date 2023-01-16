@@ -13,7 +13,9 @@ function sptmMember($post)
   $taxonomies = get_the_terms($post, 'job');
   $job = $taxonomies ? $taxonomies[0]->name : null;
 
-  $unknown = "<span class='detail-not-applicable' title='" . __('Non renseigné', 'sptm') . "'>" . __('n.r.', 'sptm') . "</span>";
+  $unknown = "<span class='detail-not-applicable' title='"
+    . __('Non renseigné', 'sptm') . "'>"
+    . __('n.r.', 'sptm') . "</span>";
 
   return "
 <div class='member'>
@@ -29,25 +31,16 @@ function sptmMember($post)
           $job
       </div>
       <div class='member-phone'>
-        <span>" . __('Fixe', 'sptm') . " :</span>" .
-    ($post->phone
-      ? "<a href='tel:" . cleanPhoneNumber($post->phone) . "'>" . formatPhoneNumber($post->phone) . "</a>"
-      : $unknown
-    ) . "
+        " . sptmLabel(__('Fixe', 'sptm')) .
+    ($post->phone ? sptmPhoneLink($post->phone) : $unknown) . "
       </div>
       <div class='member-mobile'>
-        <span>" . __('Portable', 'sptm') . " :</span>" .
-    ($post->mobile
-      ? "<a href='tel:" . cleanPhoneNumber($post->mobile) . "'>" . formatPhoneNumber($post->mobile) . "</a>"
-      : $unknown
-    ) . "
+        " . sptmLabel(__('Portable', 'sptm')) .
+    ($post->mobile ? sptmPhoneLink($post->mobile) : $unknown) . "
       </div>
       <div class='member-email'>
-        <span>" . __('Email', 'sptm') . " :</span>" .
-    ($post->email
-      ? "<a href='mailto:" . sanitize_email($post->email) . "'>" . formatPhoneNumber($post->email) . "</a>"
-      : $unknown
-    ) . "
+        " . sptmLabel(__('Email', 'sptm')) .
+    ($post->email ? sptmEmailLink($post->email) : $unknown) . "
       </div>
 		</div>
 	</div>

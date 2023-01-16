@@ -1,7 +1,5 @@
 <?php
 
-include_once 'member.php';
-
 function sptmTeamMembers($posts)
 {
   ob_start();
