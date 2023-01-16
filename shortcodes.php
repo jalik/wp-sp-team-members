@@ -4,17 +4,28 @@ function sptmTeamMembersShortcode($atts = array(), $content = null, $tag = '')
 {
   wp_enqueue_style('sptm-styles', plugins_url('styles.css', __FILE__));
 
+  $opts = shortcode_atts(
+    array(
+      'team' => null,
+      'offset' => 0,
+      'limit' => -1,
+      'orderby' => 'title',
+      'order' => 'ASC'
+    ), $atts, 'sptm_members'
+  );
+
   // Get members in the team.
   $posts = get_posts(array(
-    'posts_per_page' => 10,
     'post_type' => 'member',
-    'order' => 'ASC',
-    'orderby' => 'title',
+    'posts_per_page' => esc_sql($opts['limit']),
+    'offset' => esc_sql($opts['offset']),
+    'orderby' => esc_sql($opts['orderby']),
+    'order' => esc_sql($opts['order']),
     'tax_query' => array(
       array(
         'taxonomy' => 'team',
         'field' => 'slug',
-        'terms' => $atts['team']
+        'terms' => esc_sql($opts['team'])
       )
     )
   ));
