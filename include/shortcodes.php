@@ -37,6 +37,3 @@ function sptmTeamShortcode($atts = array(), $content = null, $tag = '')
 }
 
 add_shortcode('sptm_team', 'sptmTeamShortcode');
-
-
-// todo shortcode pour récupérer un membre

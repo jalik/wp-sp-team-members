@@ -2,10 +2,9 @@
 
 global $_wp_additional_image_sizes;
 
-
 function sptmDefaultMemberImg()
 {
-  $plugin = plugin_basename(plugin_dir_path(__FILE__));
+  $plugin = plugin_basename(SPTM_PLUGIN_FILE);
   $src = plugins_url('images/default-member.svg', $plugin);
   return "<img alt='" . __('default member photo', 'sptm') . "' class='member-photo' src='$src' />";
 }

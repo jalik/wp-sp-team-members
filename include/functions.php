@@ -17,5 +17,6 @@ function formatPhoneNumber($number)
 
 function sptmEnqueueStyles()
 {
-  wp_enqueue_style('sptm-styles', plugins_url('styles.css', __FILE__));
+  $plugin = plugin_basename(SPTM_PLUGIN_FILE);
+  wp_enqueue_style('sptm-styles', plugins_url('styles.css', $plugin));
 }

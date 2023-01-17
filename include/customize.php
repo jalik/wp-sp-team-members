@@ -8,6 +8,8 @@ function sptmCustomizeTheContent($content)
 
     $post = get_post();
     $terms = get_the_terms($post, 'job');
+    $job = null;
+
     foreach ($terms as $term) {
       $job = $term->name;
     }

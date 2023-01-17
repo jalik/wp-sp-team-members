@@ -84,8 +84,7 @@ function loadPosts($posts)
 
 function sptmLoadJSONFile()
 {
-  $dir = plugin_dir_path(__FILE__);
-  $file = path_join($dir, "data.json");
+  $file = path_join(SPTM_PLUGIN_DIR, "data.json");
 
   if (file_exists($file)) {
     $content = file_get_contents($file);
