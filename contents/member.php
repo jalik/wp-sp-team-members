@@ -2,6 +2,14 @@
 
 global $_wp_additional_image_sizes;
 
+
+function sptmDefaultMemberImg()
+{
+  $plugin = plugin_basename(plugin_dir_path(__FILE__));
+  $src = plugins_url('images/default-member.svg', $plugin);
+  return "<img alt='" . __('default member photo', 'sptm') . "' class='member-photo' src='$src' />";
+}
+
 function sptmMember($post)
 {
   $name = formatName($post->post_title);
@@ -9,6 +17,10 @@ function sptmMember($post)
   $image = get_the_post_thumbnail($post, 'medium', array(
     'class' => 'member-photo'
   ));
+
+  if (!$image) {
+    $image = sptmDefaultMemberImg();
+  }
 
   $taxonomies = get_the_terms($post, 'job');
   $job = $taxonomies ? $taxonomies[0]->name : null;
