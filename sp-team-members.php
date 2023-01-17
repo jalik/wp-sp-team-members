@@ -13,6 +13,7 @@ License: MIT
 defined('ABSPATH') || die();
 
 include_once 'functions.php';
+include_once 'customize.php';
 include_once 'contents/common.php';
 include_once 'contents/member.php';
 include_once 'contents/team.php';
