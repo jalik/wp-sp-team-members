@@ -6,7 +6,9 @@ function sptmTeamShortcode($atts = array(), $content = null, $tag = '')
 
   $opts = array_change_key_case(shortcode_atts(
     array(
-      'showtitle' => 0,
+      'showtitle' => 1,
+      'showcontacts' => 1,
+      'showjob' => 1,
       'slug' => null,
       'offset' => 0,
       'limit' => -1,

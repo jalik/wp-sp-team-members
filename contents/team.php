@@ -1,7 +1,14 @@
 <?php
 
-function sptmTeamMembers($posts, $opts)
+function sptmTeamMembers($posts, $atts = array())
 {
+  $opts = array_change_key_case(array_merge(
+    array(
+      'showtitle' => 1,
+      'slug' => null,
+    ), $atts
+  ));
+
   ob_start();
 
   if ($opts['showtitle'] > 0) {
@@ -11,7 +18,7 @@ function sptmTeamMembers($posts, $opts)
 
   echo "<div class='team'>";
   foreach ($posts as $post) {
-    echo sptmMember($post);
+    echo sptmMember($post, $opts);
   }
   echo "</div>";
 

@@ -10,8 +10,15 @@ function sptmDefaultMemberImg()
   return "<img alt='" . __('default member photo', 'sptm') . "' class='member-photo' src='$src' />";
 }
 
-function sptmMember($post)
+function sptmMember($post, $atts = array())
 {
+  $opts = array_change_key_case(array_merge(
+    array(
+      'showcontacts' => 1,
+      'showjob' => 1,
+    ), $atts
+  ));
+
   $name = formatName($post->post_title);
   $link = get_post_permalink($post);
   $image = get_the_post_thumbnail($post, 'medium', array(
@@ -29,7 +36,9 @@ function sptmMember($post)
     . __('Non renseigné', 'sptm') . "'>"
     . __('n.r.', 'sptm') . "</span>";
 
-  return "
+  ob_start();
+
+  print "
 <div class='member'>
 	<a class='member-header' href='$link'>
 		<figure>
@@ -38,24 +47,35 @@ function sptmMember($post)
 	</a>
 	<div class='member-body'>
 		<a class='member-name' href='$link'>$name</a>
-		<div class='member-details'>
+		<div class='member-details'>";
+
+
+  if ($opts['showjob'] > 0) {
+    print "
       <div class='member-job'>
           $job
-      </div>
+      </div>";
+  }
+
+  if ($opts['showcontacts'] > 0) {
+    print "
       <div class='member-mobile'>
         " . sptmLabel(__('Portable', 'sptm')) .
-    ($post->mobile ? sptmPhoneLink($post->mobile) : $unknown) . "
+      ($post->mobile ? sptmPhoneLink($post->mobile) : $unknown) . "
       </div>
       <div class='member-phone'>
         " . sptmLabel(__('Fixe', 'sptm')) .
-    ($post->phone ? sptmPhoneLink($post->phone) : $unknown) . "
+      ($post->phone ? sptmPhoneLink($post->phone) : $unknown) . "
       </div>
       <div class='member-email'>
         " . sptmLabel(__('Email', 'sptm')) .
-    ($post->email ? sptmEmailLink($post->email) : $unknown) . "
-      </div>
+      ($post->email ? sptmEmailLink($post->email) : $unknown) . "
+      </div>";
+  }
+  print "
 		</div>
 	</div>
 </div>
 ";
+  return ob_get_clean();
 }
