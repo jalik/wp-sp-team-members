@@ -1,18 +1,18 @@
 <?php
 
-function sptmTeamMembersShortcode($atts = array(), $content = null, $tag = '')
+function sptmTeamShortcode($atts = array(), $content = null, $tag = '')
 {
   wp_enqueue_style('sptm-styles', plugins_url('styles.css', __FILE__));
 
   $opts = shortcode_atts(
     array(
-      'team' => null,
+      'slug' => null,
       'offset' => 0,
       'limit' => -1,
       'orderby' => 'title',
       'order' => 'ASC'
-    ), $atts, 'sptm_members'
-  );
+    ), $atts, $tag
+  ));
 
   // Get members in the team.
   $posts = get_posts(array(
@@ -25,7 +25,7 @@ function sptmTeamMembersShortcode($atts = array(), $content = null, $tag = '')
       array(
         'taxonomy' => 'team',
         'field' => 'slug',
-        'terms' => esc_sql($opts['team'])
+        'terms' => esc_sql($opts['slug'])
       )
     )
   ));
@@ -33,6 +33,7 @@ function sptmTeamMembersShortcode($atts = array(), $content = null, $tag = '')
   return sptmTeamMembers($posts);
 }
 
-add_shortcode('sptm_members', 'sptmTeamMembersShortcode');
+add_shortcode('sptm_team', 'sptmTeamShortcode');
+
 
 // todo shortcode pour récupérer un membre
