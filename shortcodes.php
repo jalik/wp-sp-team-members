@@ -4,8 +4,9 @@ function sptmTeamShortcode($atts = array(), $content = null, $tag = '')
 {
   wp_enqueue_style('sptm-styles', plugins_url('styles.css', __FILE__));
 
-  $opts = shortcode_atts(
+  $opts = array_change_key_case(shortcode_atts(
     array(
+      'showtitle' => 0,
       'slug' => null,
       'offset' => 0,
       'limit' => -1,
@@ -30,7 +31,7 @@ function sptmTeamShortcode($atts = array(), $content = null, $tag = '')
     )
   ));
 
-  return sptmTeamMembers($posts);
+  return sptmTeamMembers($posts, $opts);
 }
 
 add_shortcode('sptm_team', 'sptmTeamShortcode');

@@ -62,4 +62,12 @@ a:hover > figure > .member-photo {
   flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
+  margin-bottom: 2em;
+}
+
+.team-name {
+  display: block;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 2em;
 }
