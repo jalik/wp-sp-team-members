@@ -4,14 +4,14 @@ function sptmTeamMembers($posts, $atts = array())
 {
   $opts = array_change_key_case(array_merge(
     array(
-      'showtitle' => 1,
+      'teamname' => 1,
       'slug' => null,
     ), $atts
   ));
 
   ob_start();
 
-  if ($opts['showtitle'] > 0) {
+  if ($opts['teamname'] > 0) {
     $term = get_term_by('slug', $opts['slug'], 'team');
     echo "<div class='team-name'>$term->name</div>";
   }
