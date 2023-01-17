@@ -20,3 +20,5 @@ include_once 'metaboxes.php';
 include_once 'post-types.php';
 include_once 'shortcodes.php';
 include_once 'taxonomies.php';
+
+include_once 'load.php';
