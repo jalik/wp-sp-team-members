@@ -2,7 +2,7 @@
 
 function sptmTeamShortcode($atts = array(), $content = null, $tag = '')
 {
-  wp_enqueue_style('sptm-styles', plugins_url('styles.css', __FILE__));
+  sptmEnqueueStyles();
 
   $opts = array_change_key_case(shortcode_atts(
     array(
