@@ -59,6 +59,7 @@ a:hover > figure > .member-photo {
 .member-phone,
 .member-mobile {
   margin-bottom: 0;
+  padding-bottom: 0;
 }
 
 .member-email > :first-child,
