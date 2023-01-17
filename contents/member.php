@@ -30,13 +30,13 @@ function sptmMember($post)
       <div class='member-job'>
           $job
       </div>
-      <div class='member-phone'>
-        " . sptmLabel(__('Fixe', 'sptm')) .
-    ($post->phone ? sptmPhoneLink($post->phone) : $unknown) . "
-      </div>
       <div class='member-mobile'>
         " . sptmLabel(__('Portable', 'sptm')) .
     ($post->mobile ? sptmPhoneLink($post->mobile) : $unknown) . "
+      </div>
+      <div class='member-phone'>
+        " . sptmLabel(__('Fixe', 'sptm')) .
+    ($post->phone ? sptmPhoneLink($post->phone) : $unknown) . "
       </div>
       <div class='member-email'>
         " . sptmLabel(__('Email', 'sptm')) .
