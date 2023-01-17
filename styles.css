@@ -21,6 +21,7 @@
 }
 
 .member-job {
+  margin-bottom: 0;
   font-style: italic;
 }
 
@@ -50,9 +51,19 @@ a:hover > figure > .member-photo {
   filter: opacity(0.6);
 }
 
-.member-email > span:first-child,
-.member-phone > span:first-child,
-.member-mobile > span:first-child {
+.member-contact-info {
+  margin-top: 1em;
+}
+
+.member-email,
+.member-phone,
+.member-mobile {
+  margin-bottom: 0;
+}
+
+.member-email > :first-child,
+.member-phone > :first-child,
+.member-mobile > :first-child {
   margin-right: 0.5em;
 }
 

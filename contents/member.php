@@ -32,10 +32,6 @@ function sptmMember($post, $atts = array())
   $taxonomies = get_the_terms($post, 'job');
   $job = $taxonomies ? $taxonomies[0]->name : null;
 
-  $unknown = "<span class='detail-not-applicable' title='"
-    . __('Non renseigné', 'sptm') . "'>"
-    . __('n.r.', 'sptm') . "</span>";
-
   ob_start();
 
   print "
@@ -52,25 +48,13 @@ function sptmMember($post, $atts = array())
 
   if ($opts['showjob'] > 0) {
     print "
-      <div class='member-job'>
-          $job
-      </div>";
+      <p class='member-job'>
+        $job
+      </p>";
   }
 
   if ($opts['showcontacts'] > 0) {
-    print "
-      <div class='member-mobile'>
-        " . sptmLabel(__('Portable', 'sptm')) .
-      ($post->mobile ? sptmPhoneLink($post->mobile) : $unknown) . "
-      </div>
-      <div class='member-phone'>
-        " . sptmLabel(__('Fixe', 'sptm')) .
-      ($post->phone ? sptmPhoneLink($post->phone) : $unknown) . "
-      </div>
-      <div class='member-email'>
-        " . sptmLabel(__('Email', 'sptm')) .
-      ($post->email ? sptmEmailLink($post->email) : $unknown) . "
-      </div>";
+    print sptmMemberContactInfo($post);
   }
   print "
 		</div>
