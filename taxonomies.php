@@ -10,7 +10,7 @@ function sptmRegisterTaxonomies()
     ),
     'public' => true,
     'show_in_rest' => true,
-    'hierarchical' => false,
+    'hierarchical' => true,
   );
 
   register_taxonomy('job', 'member', $job);
