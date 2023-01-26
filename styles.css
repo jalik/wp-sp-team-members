@@ -28,6 +28,7 @@
 .member-header {
   display: block;
   text-align: center;
+  padding: 15px;
 }
 
 .member figure {
@@ -40,7 +41,7 @@
   border-radius: 100%;
   display: block;
   object-fit: cover;
-  height: auto;
+  height: 100%;
   width: 100%;
   transition: filter 400ms;
 }

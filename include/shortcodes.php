@@ -14,7 +14,8 @@ function sptmTeamShortcode($atts = array(), $content = null, $tag = '')
       'limit' => -1,
       'orderby' => 'title',
       'order' => 'ASC',
-      'memberstyle'=> 'width: 250px',
+      'memberstyle'=> null,
+      'width'=> 250,
     ), $atts, $tag
   ));
 

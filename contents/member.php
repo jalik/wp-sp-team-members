@@ -16,6 +16,7 @@ function sptmMember($post, $atts = array())
       'showcontacts' => 1,
       'showjob' => 1,
       'memberstyle' => null,
+      'width'=> 250,
     ), $atts
   ));
 
@@ -35,16 +36,15 @@ function sptmMember($post, $atts = array())
   ob_start();
 
   print "
-<div class='member' style='$opts[memberstyle]'>
+<div class='member' style='$opts[memberstyle]; width: $opts[width]px'>
 	<a class='member-header' href='$link'>
-		<figure>
+		<figure style='height: $opts[width]px'>
 			$image
 		</figure>
 	</a>
 	<div class='member-body'>
 		<a class='member-name' href='$link'>$name</a>
 		<div class='member-details'>";
-
 
   if ($opts['showjob'] > 0) {
     print "
