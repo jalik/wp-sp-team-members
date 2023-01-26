@@ -4,7 +4,7 @@
 Plugin Name: Team Members
 Plugin URI:
 Description: Show your teams and members.
-Version: 1.0
+Version: 1.1.0
 Author: SIGMA POLYNESIA (Karl STEIN)
 Author URI: https://www.sigmapolynesia.com
 License: MIT
