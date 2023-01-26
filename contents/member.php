@@ -19,7 +19,7 @@ function sptmMember($post, $atts = array())
     ), $atts
   ));
 
-  $name = formatName($post->post_title);
+  $name = (empty($post->civility) ? '' : $post->civility . " ") . formatName($post->post_title);
   $link = get_post_permalink($post);
   $image = get_the_post_thumbnail($post, 'medium', array(
     'class' => 'member-photo'
