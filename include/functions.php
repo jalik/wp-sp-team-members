@@ -32,3 +32,15 @@ if (!function_exists('get_attachment_by_name')) {
     return $query->post;
   }
 }
+
+if (!function_exists('get_member_by_name')) {
+  function get_member_by_name($name)
+  {
+    $query = new WP_Query(array(
+      'posts_per_page' => 1,
+      'post_type' => 'member',
+      'name' => $name,
+    ));
+    return $query->post;
+  }
+}
