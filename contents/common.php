@@ -1,12 +1,5 @@
 <?php
 
-function sptmDetailUnknown()
-{
-  return "<span class='detail-not-applicable' title='"
-    . __('Non renseigné', 'sptm') . "'>"
-    . __('n.r.', 'sptm') . "</span>";
-}
-
 function sptmEmailLink($email)
 {
   $sanitizedEmail = sanitize_email($email);
@@ -20,20 +13,10 @@ function sptmLabel($label)
 
 function sptmMemberContactInfo($post)
 {
-  $unknown = sptmDetailUnknown();
   return "
     <div class='member-contact-info'>
-      <p class='member-mobile'>
-        " . sptmLabel(__('Portable', 'sptm')) .
-    ($post->mobile ? sptmPhoneLink($post->mobile) : $unknown) . "
-      </p>
-      <p class='member-phone'>
-        " . sptmLabel(__('Fixe', 'sptm')) .
-    ($post->phone ? sptmPhoneLink($post->phone) : $unknown) . "
-      </p>
       <p class='member-email'>
-        " . sptmLabel(__('Email', 'sptm')) .
-    ($post->email ? sptmEmailLink($post->email) : $unknown) . "
+        " . ($post->email ? sptmEmailLink($post->email) : "") . "
       </p>
     </div>";
 }

@@ -14,11 +14,34 @@ function sptmCustomizeTheContent($content)
       $job = $term->name;
     }
 
+    ob_start();
+
     // Append member details.
-    return "
-      $content
-      <p class='member-job'>$job</p>
-      " . sptmMemberContactInfo($post);
+    print $content;
+    print "<p class='member-job'>$job</p>";
+
+    print "<div class='member-contact-info'>";
+
+    if ($post->mobile) {
+      print "<p class='member-mobile' title=''>
+      " . sptmLabel(__('Portable', 'sptm'))
+        . sptmPhoneLink($post->mobile) . "
+      </p>";
+    }
+    if ($post->phone) {
+      print "<p class='member-phone'>
+      " . sptmLabel(__('Fixe', 'sptm'))
+        . sptmPhoneLink($post->phone) . "
+      </p>";
+    }
+    if ($post->email) {
+      print "<p class='member-email'>
+      " . sptmLabel(__('Email', 'sptm'))
+        . sptmEmailLink($post->email) . "
+      </p>";
+    }
+    print "</div>";
+    return ob_get_clean();
   }
   return $content;
 }
