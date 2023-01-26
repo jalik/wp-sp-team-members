@@ -79,6 +79,22 @@ function loadPosts($posts)
     foreach ($taxonomies as $taxonomy => $terms) {
       wp_set_object_terms($recordId, $terms, $taxonomy);
     }
+
+    // Set post featured image.
+    if (isset($post['image']) && is_string($post['image'])) {
+      $filename = basename($post['image']);
+      $mediaSlug = preg_replace('/.[a-zA-Z0-9]{1,4}$/', '', sanitize_title($filename));
+      $media = get_attachment_by_name($mediaSlug);
+
+      if (empty($media)) {
+        $imageId = media_sideload_image($post['image'], $recordId, null, 'id');
+      } else {
+        $imageId = $media->ID;
+      }
+      if (is_int($imageId)) {
+        set_post_thumbnail($recordId, $imageId);
+      }
+    }
   }
 }
 
