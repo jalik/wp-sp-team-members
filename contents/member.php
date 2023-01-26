@@ -15,6 +15,7 @@ function sptmMember($post, $atts = array())
     array(
       'showcontacts' => 1,
       'showjob' => 1,
+      'memberstyle' => null,
     ), $atts
   ));
 
@@ -34,7 +35,7 @@ function sptmMember($post, $atts = array())
   ob_start();
 
   print "
-<div class='member'>
+<div class='member' style='$opts[memberstyle]'>
 	<a class='member-header' href='$link'>
 		<figure>
 			$image

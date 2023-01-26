@@ -6,6 +6,7 @@ function sptmTeamMembers($posts, $atts = array())
     array(
       'teamname' => 1,
       'slug' => null,
+      'memberstyle' => null,
     ), $atts
   ));
 

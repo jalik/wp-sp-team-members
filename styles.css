@@ -4,12 +4,12 @@
 }
 
 .member {
-  width: 300px;
 }
 
 .member-body {
   padding: 15px;
   margin: 0;
+  text-align: center;
 }
 
 .member-name {
@@ -17,7 +17,7 @@
 }
 
 .member-details {
-  font-size: 0.8em;
+  font-size: 0.9em;
 }
 
 .member-job {
@@ -27,6 +27,7 @@
 
 .member-header {
   display: block;
+  text-align: center;
 }
 
 .member figure {
@@ -36,11 +37,11 @@
 
 .member-photo {
   background: rgba(200, 200, 200, 0.1);
-  border-radius: 5px;
+  border-radius: 100%;
   display: block;
   object-fit: cover;
-  width: auto;
-  height: 100%;
+  height: auto;
+  width: 100%;
   transition: filter 400ms;
 }
 
@@ -52,7 +53,6 @@ a:hover > figure > .member-photo {
 }
 
 .member-contact-info {
-  margin-top: 1em;
 }
 
 .member-email,
@@ -72,7 +72,7 @@ a:hover > figure > .member-photo {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 50px;
   justify-content: center;
   margin-bottom: 2em;
 }

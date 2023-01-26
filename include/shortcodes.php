@@ -13,7 +13,8 @@ function sptmTeamShortcode($atts = array(), $content = null, $tag = '')
       'offset' => 0,
       'limit' => -1,
       'orderby' => 'title',
-      'order' => 'ASC'
+      'order' => 'ASC',
+      'memberstyle'=> 'width: 250px',
     ), $atts, $tag
   ));
 
