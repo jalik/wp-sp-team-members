@@ -14,7 +14,10 @@ function sptmTeamMembers($posts, $atts = array())
 
   if ($opts['teamname'] > 0) {
     $term = get_term_by('slug', $opts['slug'], 'team');
-    echo "<div class='team-name'>$term->name</div>";
+
+    if ($term) {
+      echo "<div class='team-name'>$term->name</div>";
+    }
   }
 
   echo "<div class='team'>";
