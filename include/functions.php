@@ -18,7 +18,8 @@ function formatPhoneNumber($number)
 function sptmEnqueueStyles()
 {
   $plugin = plugin_basename(SPTM_PLUGIN_FILE);
-  wp_enqueue_style('sptm-styles', plugins_url('styles.css', $plugin), array(), '1.0.1');
+  $version = WP_DEBUG ? time() : SPTM_PLUGIN_VERSION;
+  wp_enqueue_style('sptm-styles', plugins_url('styles.css', $plugin), array(), $version);
 }
 
 if (!function_exists('get_attachment_by_name')) {

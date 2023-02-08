@@ -14,6 +14,7 @@ defined('ABSPATH') || die();
 
 define('SPTM_PLUGIN_DIR', plugin_dir_path(__FILE__));
 define('SPTM_PLUGIN_FILE', __FILE__);
+define('SPTM_PLUGIN_VERSION', '1.1.0');
 
 include_once 'include/functions.php';
 include_once 'include/customize.php';
